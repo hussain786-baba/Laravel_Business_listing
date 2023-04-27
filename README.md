@@ -7,7 +7,7 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/abdulaziz-m5u/laravel-real-estate.git project-name
+  git clone https://github.com/hussain786-baba/Laravel_Business_listing
 ```
 
 Go to the project directory
