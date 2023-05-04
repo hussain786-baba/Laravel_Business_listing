@@ -35,15 +35,32 @@
                         <input type="email" class="form-control" id="email" placeholder="{{ __('Email') }}" name="email" value="{{ old('email',  $user->email) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="fax">{{ __('fax') }}</label>
-                        <input type="number" class="form-control" id="fax" placeholder="{{ __('fax') }}" name="fax" value="{{ old('fax',  $user->fax) }}" />
+                        <label for="address">{{ __('Address') }}</label>
+                        <input type="text" class="form-control" id="address" placeholder="{{ __('Address') }}" name="address" value="{{ old('address',  $user->address) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="phone">{{ __('phone') }}</label>
+                        <label for="city">{{ __('City') }}</label>
+                        <input type="text" class="form-control" id="city" placeholder="{{ __('City') }}" name="city" value="{{ old('city',  $user->city) }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">{{ __('Zip') }}</label>
+                        <input type="text" class="form-control" id="zip" placeholder="{{ __('Zip') }}" name="zip" value="{{ old('zip',  $user->zip) }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="state">{{ __('State') }}</label>
+                        <input type="text" class="form-control" id="state" placeholder="{{ __('State') }}" name="state" value="{{ old('state',  $user->state) }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="country">{{ __('Country') }}</label>
+                        <input type="text" class="form-control" id="country" placeholder="{{ __('Country') }}" name="country" value="{{ old('country',  $user->country) }}" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">{{ __('Phone') }}</label>
                         <input type="number" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone',  $user->phone) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="whatsapp">{{ __('whatsapp') }}</label>
+                        <label for="whatsapp">{{ __('Whatsapp') }}</label>
                         <input type="number" class="form-control" id="whatsapp" placeholder="{{ __('whatsapp') }}" name="whatsapp" value="{{ old('whatsapp',  $user->whatsapp) }}" />
                     </div>
                     <div class="form-group">
