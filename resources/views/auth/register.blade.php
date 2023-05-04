@@ -73,13 +73,13 @@
                     </div>
                     <div class="col-lg-6 mb-3">
                       <input
-                        type="number"
-                        name="fax"
-                        class="form-control bg-white border-secondary  @error('fax') is-invalid @enderror"
+                        type="text"
+                        name="address"
+                        class="form-control bg-white border-secondary  @error('address') is-invalid @enderror"
                         style="height: 45px"
-                        placeholder="Fax"
+                        placeholder="Address"
                       />
-                      @error('fax')
+                      @error('address')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -87,6 +87,71 @@
                     </div>
                   </div>
                 </div>
+                <div class="form-group ">
+                  <div class="row">
+                    <div class="col-lg-6 mb-3">
+                      <input
+                        type="text"
+                        name="city"
+                        class="form-control bg-white border-secondary  @error('city') is-invalid @enderror"
+                        style="height: 45px"
+                        placeholder="City"
+                      />
+                      @error('city')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                      <input
+                        type="text"
+                        name="zip"
+                        class="form-control bg-white border-secondary  @error('zip') is-invalid @enderror"
+                        style="height: 45px"
+                        placeholder="Zip"
+                      />
+                      @error('zip')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group ">
+                  <div class="row">
+                    <div class="col-lg-6 mb-3">
+                      <input
+                        type="text"
+                        name="state"
+                        class="form-control bg-white border-secondary  @error('state') is-invalid @enderror"
+                        style="height: 45px"
+                        placeholder="State"
+                      />
+                      @error('state')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                      <input
+                        type="text"
+                        name="country"
+                        class="form-control bg-white border-secondary  @error('country') is-invalid @enderror"
+                        style="height: 45px"
+                        placeholder="Country"
+                      />
+                      @error('country')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="form-group mb-3">
                   <div class="row">
                     <div class="col">

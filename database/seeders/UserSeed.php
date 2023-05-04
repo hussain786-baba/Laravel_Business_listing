@@ -22,7 +22,11 @@ class UserSeed extends Seeder
                 'password'       => bcrypt('123'),
                 'remember_token' => null,
                 'phone' => '123',
-                'fax' => '123',
+                'address' => '123',
+                'city' => 'india',
+                'zip' => '854303',
+                'state' => 'bihar',
+                'country' => 'india',
                 'whatsapp' => '123',
                 'profile' => 'null'
             ],

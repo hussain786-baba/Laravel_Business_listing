@@ -15,9 +15,11 @@ class AddNewFieldsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone');
-            $table->string('fax');
+            $table->string('address');
+            $table->string('city');
             $table->string("whatsapp");
             $table->text('profile');
+            
         });
     }
 
@@ -30,7 +32,8 @@ class AddNewFieldsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('phone');
-            $table->dropColumn('fax');
+            $table->dropColumn('address');
+            $table->dropColumn('city');
             $table->dropColumn("whatsapp");
             $table->text('profile');
         });
