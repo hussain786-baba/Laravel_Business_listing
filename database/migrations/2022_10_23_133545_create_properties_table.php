@@ -20,9 +20,9 @@ class CreatePropertiesTable extends Migration
             $table->integer('price');
             $table->string('location');
             $table->text('description');
-            $table->string('bed');
-            $table->string('bath');
-            $table->string('size');
+            $table->string('city');
+            $table->string('phone');
+            $table->string('website');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

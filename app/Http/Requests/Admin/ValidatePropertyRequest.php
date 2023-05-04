@@ -28,9 +28,9 @@ class ValidatePropertyRequest extends FormRequest
             'price' => 'required',
             'location' => 'required',
             'description' => 'required',
-            'bed' => 'required',
-            'bath' => 'required',
-            'size' => 'required',
+            'city' => 'required',
+            'phone' => 'required',
+            'website' => 'required',
             'category_id' => 'required'
         ];
     }

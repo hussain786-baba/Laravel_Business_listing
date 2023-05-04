@@ -19,7 +19,7 @@
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{ __('create data') }}</h1>
+                    <h1 class="h3 mb-0 text-gray-800">{{ __('PRIMARY LISTING DETAILS') }}</h1>
                     <a href="{{ route('admin.properties.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
@@ -47,16 +47,16 @@
                         <input type="text" class="form-control" id="location" placeholder="{{ __('location') }}" name="location" value="{{ old('location') }}" />
                     </div>
                     <div class="form-group">
-                        <label for="bed">{{ __('Number of Bed') }}</label>
-                        <input type="number" class="form-control" id="bed" placeholder="{{ __('bed') }}" name="bed" value="{{ old('bed') }}" />
+                        <label for="city">{{ __('City') }}</label>
+                        <input type="text" class="form-control" id="city" placeholder="{{ __('city') }}" name="city" value="{{ old('city') }}" />
                     </div>
                     <div class="form-group">
-                        <label for="bath">{{ __('Number of Bath') }}</label>
-                        <input type="number" class="form-control" id="bath" placeholder="{{ __('bath') }}" name="bath" value="{{ old('bath') }}" />
+                        <label for="phone">{{ __('Phone') }}</label>
+                        <input type="number" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone') }}" />
                     </div>
                     <div class="form-group">
-                        <label for="size">{{ __('Number of Size') }}</label>
-                        <input type="number" class="form-control" id="size" placeholder="{{ __('size') }}" name="size" value="{{ old('size') }}" />
+                        <label for="website">{{ __('Website') }}</label>
+                        <input type="text" class="form-control" id="website" placeholder="{{ __('website') }}" name="website" value="{{ old('website') }}" />
                     </div>
                     <div class="form-group">
                         <label for="description">{{ __('Description') }}</label>

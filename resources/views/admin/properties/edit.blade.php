@@ -184,16 +184,16 @@
                         <input type="text" class="form-control" id="location" placeholder="{{ __('location') }}" name="location" value="{{ old('location', $property->location) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="bed">{{ __('Number of Bed') }}</label>
-                        <input type="number" class="form-control" id="bed" placeholder="{{ __('bed') }}" name="bed" value="{{ old('bed', $property->bed) }}" />
+                        <label for="city">{{ __('City') }}</label>
+                        <input type="text" class="form-control" id="city" placeholder="{{ __('city') }}" name="city" value="{{ old('city', $property->city) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="bath">{{ __('Number of Bath') }}</label>
-                        <input type="number" class="form-control" id="bath" placeholder="{{ __('bath') }}" name="bath" value="{{ old('bath', $property->bath) }}" />
+                        <label for="phone">{{ __('Phone') }}</label>
+                        <input type="number" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone', $property->phone) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="size">{{ __('Number of Size') }}</label>
-                        <input type="number" class="form-control" id="size" placeholder="{{ __('size') }}" name="size" value="{{ old('size', $property->size) }}" />
+                        <label for="website">{{ __('Website') }}</label>
+                        <input type="text" class="form-control" id="website" placeholder="{{ __('website') }}" name="website" value="{{ old('website', $property->website) }}" />
                     </div>
                     <div class="form-group">
                         <label for="description">{{ __('Description') }}</label>

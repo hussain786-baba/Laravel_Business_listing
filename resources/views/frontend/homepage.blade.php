@@ -67,7 +67,7 @@
                             <div class="card border-0 shadow-sm">
                                 <img height="310" style="object-fit: cover"
                                     src="{{ Storage::url($property->galleries()->first()->path) }}" class="card-img-top"
-                                    alt="..." />
+                                    alt="{{$property->galleries()->first()->path}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         {{ $property->name }}
