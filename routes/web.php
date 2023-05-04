@@ -22,6 +22,7 @@ Route::get('properties/category/{category:slug}',  [\App\Http\Controllers\Catego
 Route::get('agents',  [\App\Http\Controllers\AgentController::class , 'index'])->name('agent.index');
 Route::get('contact',  [\App\Http\Controllers\ContactController::class , 'index'])->name('contact.index');
 Route::post('contact',  [\App\Http\Controllers\ContactController::class , 'store'])->name('contact.store');
+Route::get('search',  [\App\Http\Controllers\SearchController::class , 'searchProperty'])->name('search.searchProperty');
 
 Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('welcome', function() {

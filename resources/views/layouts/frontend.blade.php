@@ -17,7 +17,7 @@
   <body>
     <header class="bg-white border-bottom">
       <nav class="navbar navbar-expand-lg">
-        <div class="container bg-white" style="z-index: 9">
+        <div class="container bg-white" style="z-index: 999">
           <div class="nav-logo d-flex align-items-center flex-column">
             <i class="uil uil-estate text-primary" style="font-size: 2rem"></i>
             <a class="navbar-brand me-0" href="{{ route('homepage') }}" style="margin-top: -0.9rem"
