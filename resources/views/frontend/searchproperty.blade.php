@@ -55,7 +55,7 @@
                 <i class="uil uil-map-marker text-secondary"></i>
                 <span class="text-secondary">{{ $property->location }}</span>
                 <hr />
-                <div class="d-grid grid-custom">
+                {{-- <div class="d-grid grid-custom">
                   <div class="col">
                     <small class="text-secondary">Land Size</small>
                     <div
@@ -88,7 +88,7 @@
                       <span class="fw-bold text-secondary">{{ $property->bath }}</span>
                     </div>
                   </div>
-                </div>
+                </div> --}}
                 <hr class="mb-5" />
                 <h1 style="width: 50%; font-size: 2vw" class="fw-bold mb-0">
                   ${{ $property->price }}

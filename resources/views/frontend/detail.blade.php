@@ -39,7 +39,7 @@
             <div class="card border-0 p-4">
               <div class="d-flex justify-content-between mb-4">
                 <h1>${{ $property->price }}</h1>
-                <div class="d-grid grid-custom">
+                {{-- <div class="d-grid grid-custom">
                   <div class="col">
                     <small class="text-secondary">Land Size</small>
                     <div
@@ -72,7 +72,7 @@
                       <span class="fw-bold text-secondary">{{ $property->bath }}</span>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </div>
               <h3 class="mb-2">Description</h3>
               <p class="mb-5 text-secondary">
@@ -119,7 +119,7 @@
                     style="column-gap: 3rem"
                     class="text-secondary mb-3 d-flex justify-content-between"
                   >
-                    <span class="fw-light">Fax : </span> {{ $property->agent->fax }}
+                    <span class="fw-light">Website : </span> {{ $property->agent->website }}
                   </li>
                   <li
                     style="column-gap: 3rem"

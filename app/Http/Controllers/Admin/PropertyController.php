@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Models\Category;
 use App\Models\Property;
 use Illuminate\Support\Str;
