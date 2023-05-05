@@ -64,7 +64,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('property.index') }}">Properties</a>
+                <a class="nav-link" href="{{ route('property.index') }}">Business</a>
               </li>
              
               <li class="nav-item">

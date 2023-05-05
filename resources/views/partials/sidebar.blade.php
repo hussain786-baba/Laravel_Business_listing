@@ -38,12 +38,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseProperty" aria-expanded="true" aria-controls="collapseProperty">
                     <i class="fas fa-home"></i>
-                    <span>{{ __('Property Management') }}</span>
+                    <span>{{ __('Business Management') }}</span>
                 </a>
                 <div id="collapseProperty" class="collapse" aria-labelledby="headingProperty" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Category') }}</a>
-                        <a class="collapse-item {{ request()->is('admin/properties') || request()->is('admin/properties/*') ? 'active' : '' }}" href="{{ route('admin.properties.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Property') }}</a>
+                        <a class="collapse-item {{ request()->is('admin/properties') || request()->is('admin/properties/*') ? 'active' : '' }}" href="{{ route('admin.properties.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Bussiness') }}</a>
                     </div>
                 </div>
             </li>
@@ -60,11 +60,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseProperty" aria-expanded="true" aria-controls="collapseProperty">
                     <i class="fas fa-home"></i>
-                    <span>{{ __('Property Management') }}</span>
+                    <span>{{ __('Business Management') }}</span>
                 </a>
                 <div id="collapseProperty" class="collapse" aria-labelledby="headingProperty" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ request()->is('admin/properties') || request()->is('admin/properties/*') ? 'active' : '' }}" href="{{ route('admin.properties.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Property') }}</a>
+                        <a class="collapse-item {{ request()->is('admin/properties') || request()->is('admin/properties/*') ? 'active' : '' }}" href="{{ route('admin.properties.index') }}"> <i class="fa fa-briefcase mr-2"></i> {{ __('Business') }}</a>
                     </div>
                 </div>
             </li>

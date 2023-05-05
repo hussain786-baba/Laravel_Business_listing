@@ -11,12 +11,12 @@
       >
         <div class="container">
           <div class="row text-center" style="padding-top: 120px">
-            <h3 class="text-white">List Properties</h3>
+            <h3 class="text-white">Business List </h3>
           </div>
         </div>
       </section>
       <section class="container category" style="margin-bottom: 100px">
-        <h3 class="text-center">Choose Properties That You Like</h3>
+        <h3 class="text-center">Choose Business That You Like</h3>
         <p class="text-center">make your dream home become reality</p>
         <hr />
 

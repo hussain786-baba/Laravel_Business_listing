@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                {{ __('property') }}
+                {{ __('Business') }}
                 </h6>
                 <div class="ml-auto">
                     @can('property_create')

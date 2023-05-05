@@ -38,7 +38,7 @@
           <div class="col-lg-8 mb-4">
             <div class="card border-0 p-4">
               <div class="d-flex justify-content-between mb-4">
-                <h1>${{ $property->price }}</h1>
+                <h1>${{ $property->price}}</h1>
                 {{-- <div class="d-grid grid-custom">
                   <div class="col">
                     <small class="text-secondary">Land Size</small>
@@ -78,7 +78,7 @@
               <p class="mb-5 text-secondary">
                 {{ $property->description }}
               </p>
-              <h4 class="mb-2">Property Features</h4>
+              <h4 class="mb-2">Business Features</h4>
               <div class="d-grid grid-custom">
                   @foreach($property->features as $feature)
                         <div class="col w-100">
@@ -115,12 +115,7 @@
                   >
                     <span class="fw-light">Mobile : </span> {{ $property->agent->phone }}
                   </li>
-                  <li
-                    style="column-gap: 3rem"
-                    class="text-secondary mb-3 d-flex justify-content-between"
-                  >
-                    <span class="fw-light">Website : </span> {{ $property->agent->website }}
-                  </li>
+                  
                   <li
                     style="column-gap: 3rem"
                     class="text-secondary mb-3 d-flex justify-content-between"
@@ -131,8 +126,15 @@
                     style="column-gap: 3rem"
                     class="text-secondary mb-3 d-flex justify-content-between"
                   >
+                    <span class="fw-light">Location: </span> {{ $property->agent->address}}
+                  </li>
+                  <li
+                    style="column-gap: 3rem"
+                    class="text-secondary mb-3 d-flex justify-content-between"
+                  >
                     <span class="fw-light">Email : </span> {{ $property->agent->email }}
                   </li>
+                  
                 </ul>
               </div>
               <a href="tel:{{ $property->agent->phone }}" class="w-75 p-3 text-center mx-auto btn btn-primary"
