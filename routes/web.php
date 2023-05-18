@@ -43,6 +43,15 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('messages', \App\Http\Controllers\Admin\MessageController::class)->only('index','destroy');
     Route::get('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'edit'])->name('agents.edit');
     Route::put('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'update'])->name('agents.update');
+
+    // blog management
+    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
+    //    Route::resource('properties.features', \App\Http\Controllers\Admin\FeatureController::class);
+    //    Route::resource('properties.galleries', \App\Http\Controllers\Admin\GalleryController::class);
+    //    Route::resource('messages', \App\Http\Controllers\Admin\MessageController::class)->only('index','destroy');
+    //    Route::get('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'edit'])->name('agents.edit');
+    //    Route::put('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'update'])->name('agents.update');
+
 });
 
 Auth::routes();
