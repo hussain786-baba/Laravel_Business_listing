@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ValidateBlogRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Property;
@@ -32,67 +33,68 @@ class BlogController extends Controller
 
     public function create(): View
     {
-        abort_if(Gate::denies('property_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('blog_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
         $categories = Category::get();
 
-        return view('admin.properties.create', compact('categories'));
+        return view('admin.blogs.create', compact('categories'));
     }
 
-    public function store(ValidatePropertyRequest $request): RedirectResponse
+    public function store(ValidateBlogRequest $request): RedirectResponse
     {
-        abort_if(Gate::denies('property_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('blog_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $slug = Str::slug($request->name, '-');
+        $tile = Str::title($request->name, '-');
         
-        $property = Property::create($request->validated() + ['slug' => $slug, 'user_id' => auth()->id()]);
+        $blogs = Blog::create($request->validated() + ['slug' => $tile, 'user_id' => auth()->id()]);
 
-        return redirect()->route('admin.properties.edit', $property->id)->with([
+        return redirect()->route('admin.blogs.edit', $blogs->id)->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);
     }
 
-    public function show(Property $property): View
+    public function show(Blog $blogs): View
     {
-        abort_if(Gate::denies('property_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('blog_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.properties.show', compact('property'));
+        return view('admin.blogs.show', compact('blogs'));
     }
 
-    public function edit(Property $property): View
+    public function edit(Blog $blogs): View
     {
-         abort_if(Gate::denies('property_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-         if($property->agent->name != auth()->user()->name && auth()->user()->roles()->where('title', 'agent')->count() > 0){
+         abort_if(Gate::denies('blog_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+         if($blogs->agent->name != auth()->user()->name && auth()->user()->roles()->where('title', 'agent')->count() > 0){
             abort(403);
          }
          $categories = Category::get();
 
-        return view('admin.properties.edit', compact('property', 'categories'));
+        return view('admin.blogs.edit', compact('blogs', 'categories'));
     }
 
-    public function update(ValidatePropertyRequest $request, Property $property): RedirectResponse
+    public function update(ValidateBlogRequest $request, Blog $blogs): RedirectResponse
     {
-        abort_if(Gate::denies('property_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('blog_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
        
-        $slug = Str::slug($request->name, '-');
+        $title = Str::slug($request->name, '-');
 
-        $property->update($request->validated() + ['slug' => $slug,'user_id' => auth()->id()]);
+        $blogs->update($request->validated() + ['slug' => $title,'user_id' => auth()->id()]);
 
-        return redirect()->route('admin.properties.index')->with([
+        return redirect()->route('admin.blogs.index')->with([
             'message' => 'successfully updated !',
             'alert-type' => 'info'
         ]);
     }
 
-    public function destroy(Property $property): RedirectResponse
+    public function destroy(Blog $blogs): RedirectResponse
     {
-        abort_if(Gate::denies('property_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        if($property->agent->name != auth()->user()->name){
-            abort(403);
-         }
+        // abort_if(Gate::denies('blog_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        // if($blogs->agent->name != auth()->user()->name){
+        //     abort(403); 
+        //  }
+      
 
-        $property->delete();
+        $blogs->delete();
 
         return back()->with([
             'message' => 'successfully deleted !',
