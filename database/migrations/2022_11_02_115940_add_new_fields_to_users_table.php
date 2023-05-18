@@ -17,6 +17,9 @@ class AddNewFieldsToUsersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('city');
+            $table->string('zip');
+            $table->string('state');
+            $table->string("country");
             $table->string("whatsapp");
             $table->text('profile');
             

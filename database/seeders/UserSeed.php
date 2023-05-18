@@ -16,19 +16,19 @@ class UserSeed extends Seeder
     {
         $users = [
             [
-                'id' => 1,
-                'name'           => 'admin',
-                'email'          => 'admin@example.com',
-                'password'       => bcrypt('123'),
-                'remember_token' => null,
-                'phone' => '123',
-                'address' => '123',
-                'city' => 'india',
-                'zip' => '854303',
-                'state' => 'bihar',
-                'country' => 'india',
-                'whatsapp' => '123',
-                'profile' => 'null'
+                'id'             => 1,
+                'name'           =>  'admin',
+                'email'          =>  'admin@example.com',
+                'password'       =>  bcrypt('123'),
+                'remember_token' =>  null,
+                'phone'          =>  '7079860977',
+                'address'        =>  'mohali',
+                'city'           =>  'india',
+                'zip'            =>  '854303',
+                'state'          =>  'bihar',
+                'country'        =>  'india',
+                'whatsapp'       =>  '123',
+                'profile'        =>  'null',
             ],
         ];
 
