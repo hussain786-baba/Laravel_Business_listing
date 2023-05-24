@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/linkstorage', function () {
+//     $targetFolder = storage_path('app/public');
+//     $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage';
+//     symlink($targetFolder,$linkFolder);
+// });
+
 
 Route::get('/',  [\App\Http\Controllers\HomeController::class , 'index'])->name('homepage');
 Route::get('properties',  [\App\Http\Controllers\PropertyController::class , 'index'])->name('property.index');
@@ -44,11 +50,11 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'edit'])->name('agents.edit');
     Route::put('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'update'])->name('agents.update');
 
+    
     // blog management
-    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
-    ///////
+    
     Route::resource('blog_categories',\App\Http\Controllers\Admin\Blog_CategoriesController::class);
-    // Route::resource('properties', \App\Http\Controllers\Admin\PropertyController::class);
+    Route::resource('blogpost', \App\Http\Controllers\Admin\PostController::class);
     // Route::resource('properties.features', \App\Http\Controllers\Admin\FeatureController::class);
     // Route::resource('properties.galleries', \App\Http\Controllers\Admin\GalleryController::class);
     // Route::resource('messages', \App\Http\Controllers\Admin\MessageController::class)->only('index','destroy');

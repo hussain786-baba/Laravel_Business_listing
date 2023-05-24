@@ -80,8 +80,8 @@
                         {{ __('Blog_Category') }}</a>
 
 
-                    <a class="collapse-item {{ request()->is('admin/blogs') || request()->is('admin/blogs/*') ? 'active' : '' }}"
-                        href="{{ route('admin.blogs.index') }}"> <i class="fa fa-briefcase mr-2"></i>
+                    <a class="collapse-item {{ request()->is('admin/blogpost') || request()->is('admin/blogpost/*') ? 'active' : '' }}"
+                        href="{{ route('admin.blogpost.index') }}"> <i class="fa fa-briefcase mr-2"></i>
                         {{ __('Post') }}</a>
 
                 </div>

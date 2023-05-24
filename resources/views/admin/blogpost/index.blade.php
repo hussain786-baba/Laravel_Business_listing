@@ -7,11 +7,11 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                {{ __('Blogs') }}
+                {{ __('Blog Posts') }}
                 </h6>
                 <div class="ml-auto">
                     @can('blog_create')
-                    <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.blogpost.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -25,23 +25,23 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>{{ __('Title') }}</th>
-                                <th>{{ __('Description') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Price') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($blogs as $blog)
-                            <tr data-entry-id="{{ $blog->id }}">
+                            @forelse($blogpost as $post)
+                            <tr data-entry-id="{{ $post->id }}">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $blog->name }}</td>
-                                <td>{{ $blog->description  }}</td>
+                                <td>{{ $post->name }}</td>
+                                <td>{{ $post->price }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn btn-info">
+                                        <a href="{{ route('admin.blogpost.edit', $post->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogs.destroy', $blog->id) }}" method="POST">
+                                        <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogpost.destroy', $post->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
