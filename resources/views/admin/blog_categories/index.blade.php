@@ -7,11 +7,11 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                {{ __('category') }}
+                {{ __('Blog Category') }}
                 </h6>
                 <div class="ml-auto">
-                    @can('category_create')
-                    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">
+                    @can('blog_category_create')
+                    <a href="{{ route('admin.blog_categories.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -30,16 +30,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($categories as $category)
+                            @forelse($blog_categories as $category)
                             <tr data-entry-id="{{ $category->id }}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-info">
+                                        <a href="{{ route('admin.blog_categories.edit', $category->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                                        <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blog_categories.destroy', $category->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">

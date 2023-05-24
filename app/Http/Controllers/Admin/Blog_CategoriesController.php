@@ -24,61 +24,61 @@ class Blog_CategoriesController extends Controller
         return view('admin.blog_categories.index', compact('blog_categories'));
     }
 
-    // public function create(): View
-    // {
-    //     abort_if(Gate::denies('blog_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function create(): View
+    {
+        abort_if(Gate::denies('blog_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
-    //     return view('admin.blog_categories.create');
-    // }
+        return view('admin.blog_categories.create');
+    }
 
-    // public function store(ValidateBlogCategoryRequest $request): RedirectResponse
-    // {
-    //     abort_if(Gate::denies('blog_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function store(ValidateBlogCategoryRequest $request): RedirectResponse
+    {
+        abort_if(Gate::denies('blog_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-    //     $slug = Str::slug($request->name, '-');
-    //     Blog_Category::create($request->validated() + ['slug' => $slug]);
+        $slug = Str::slug($request->name, '-');
+        Category_blogs::create($request->validated() + ['slug' => $slug]);
 
-    //     return redirect()->route('admin.blog_categories.index')->with([
-    //         'message' => 'successfully created !',
-    //         'alert-type' => 'success'
-    //     ]);
-    // }
+        return redirect()->route('admin.blog_categories.index')->with([
+            'message' => 'successfully created !',
+            'alert-type' => 'success'
+        ]);
+    }
 
-    // public function show(Blog_Category $category): View
-    // {
-    //     abort_if(Gate::denies('blog_category_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function show(Category_blogs $blog_categories): View
+    {
+        abort_if(Gate::denies('blog_category_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
-    //     return view('admin.blog_categories.show', compact('blog_category'));
-    // }
+        return view('admin.blog_categories.show', compact('category'));
+    }
 
-    // public function edit(Blog_Category $category): View
-    // {
-    //     abort_if(Gate::denies('blog_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function edit(Category_blogs $blog_category): View
+    {
+        abort_if(Gate::denies('blog_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
-    //     return view('admin.blog_categories.edit', compact('blog_category'));
-    // }
+        return view('admin.blog_categories.edit', compact('blog_category'));
+    }
 
-    // public function update(ValidateBlogCategoryRequest $request, Blog_Category $category): RedirectResponse
-    // {
-    //     abort_if(Gate::denies('blog_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function update(ValidateBlogCategoryRequest $request, Category_blogs $blog_category): RedirectResponse
+    {
+        abort_if(Gate::denies('blog_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
        
-    //     $slug = Str::slug($request->name, '-');
-    //     $category->update($request->validated() + ['slug' => $slug]);
+        $slug = Str::slug($request->name, '-');
+        $blog_category->update($request->validated() + ['slug' => $slug]);
 
-    //     return redirect()->route('admin.blog_categories.index')->with([
-    //         'message' => 'successfully updated !',
-    //         'alert-type' => 'info'
-    //     ]);
-    // }
+        return redirect()->route('admin.blog_categories.index')->with([
+            'message' => 'successfully updated !',
+            'alert-type' => 'info'
+        ]);
+    }
 
-    // public function destroy(Blog_Category $category): RedirectResponse
-    // {
-    //     abort_if(Gate::denies('blog_category_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-    //     $category->delete();
+    public function destroy(Category_blogs $blog_category): RedirectResponse
+    {
+        abort_if(Gate::denies('blog_category_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $blog_category->delete();
 
-    //     return back()->with([
-    //         'message' => 'successfully deleted !',
-    //         'alert-type' => 'danger'
-    //     ]);
-    // }
+        return back()->with([
+            'message' => 'successfully deleted !',
+            'alert-type' => 'danger'
+        ]);
+    }
 }
