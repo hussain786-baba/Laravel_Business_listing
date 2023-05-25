@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('city');
             $table->string('phone');
             $table->string('website');
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_blogs_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

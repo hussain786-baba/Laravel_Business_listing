@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogGalleriesTable extends Migration
+class CreateGalleriesBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateBlogGalleriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_galleries', function (Blueprint $table) {
+        Schema::create('galleries_blogs', function (Blueprint $table) {
             $table->id();
             $table->text('path');
-            $table->foreignId('blog_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('posts_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateBlogGalleriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_galleries');
+        Schema::dropIfExists('galleries_blogs');
     }
 }

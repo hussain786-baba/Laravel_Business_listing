@@ -68,7 +68,7 @@ class PostController extends Controller
          }
          $blog_categories = Category_blogs::get();
 
-        return view('admin.properties.edit', compact('blogpost', 'blog_categories'));
+        return view('admin.blogpost.edit', compact('blogpost', 'blog_categories'));
     }
 
     public function update(ValidatePostRequest $request, Post $blogpost): RedirectResponse

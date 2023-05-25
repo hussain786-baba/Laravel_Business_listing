@@ -35,16 +35,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($property->features as $feature)
+                                @forelse($post->features_blogs as $feature)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $feature->name }}</td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.properties.features.edit', [$property->id, $feature->id]) }}" class="btn btn-info">
+                                                <a href="{{ route('admin.blogpost.features.edit', [$posts->id, $feature->id]) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
-                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.properties.features.destroy', [$property->id, $feature->id]) }}" method="POST">
+                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.properties.features.destroy', [$posts->id, $feature->id]) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.properties.features.store', $property->id) }}" method="POST">
+                        <form action="{{ route('admin.blogpost.features.store', $posts->id) }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="name">{{ __('Name') }}</label>
@@ -100,20 +100,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($property->galleries as $gallery)
+                                @forelse($posts->galleries_blogs as $gallery)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a target="_blank" href="{{ Storage::url($gallery->path) }}">
-                                                <img width="80" height="80" src="{{ Storage::url($gallery->path) }}" alt="{{ $property->name }}">
+                                                <img width="80" height="80" src="{{ Storage::url($gallery->path) }}" alt="{{ $posts->name }}">
                                             </a>
                                         </td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.properties.galleries.edit', [$property->id, $gallery->id]) }}" class="btn btn-info">
+                                                <a href="{{ route('admin.blogpost.galleries.edit', [$posts->id, $gallery->id]) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
-                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.properties.galleries.destroy', [$property->id, $gallery->id]) }}" method="POST">
+                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogpost.galleries.destroy', [$post->id, $gallery->id]) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.properties.galleries.store', $property->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.blogpost.galleries.store', $post->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="path">{{ __('Featured Image') }}</label>
@@ -156,48 +156,48 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('edit data')}}</h1>
-                    <a href="{{ route('admin.properties.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="{{ route('admin.blogpost.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.properties.update', $property->id) }}" method="POST">
+                <form action="{{ route('admin.blogpost.update', $posts->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
                         <label for="category">{{ __('Category') }}</label>
                         <select name="category_id" class="form-control" id="category">
-                            @foreach($categories as $category)
-                            <option {{ $category->id == $property->category->id ? 'selected' : null }} value="{{ $category->id }}">{{ $category->name }}</option>
+                            @foreach($categories_blogs as $category)
+                            <option {{ $category->id == $post->category->id ? 'selected' : null }} value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="name">{{ __('Name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('Name') }}" name="name" value="{{ old('name', $property->name) }}" />
+                        <input type="text" class="form-control" id="name" placeholder="{{ __('Name') }}" name="name" value="{{ old('name', $post->name) }}" />
                     </div>
                     <div class="form-group">
                         <label for="price">{{ __('Price') }}</label>
-                        <input type="number" class="form-control" id="price" placeholder="{{ __('price') }}" name="price" value="{{ old('price', $property->price) }}" />
+                        <input type="number" class="form-control" id="price" placeholder="{{ __('price') }}" name="price" value="{{ old('price', $post->price) }}" />
                     </div>
                     <div class="form-group">
                         <label for="location">{{ __('Location') }}</label>
-                        <input type="text" class="form-control" id="location" placeholder="{{ __('location') }}" name="location" value="{{ old('location', $property->location) }}" />
+                        <input type="text" class="form-control" id="location" placeholder="{{ __('location') }}" name="location" value="{{ old('location', $post->location) }}" />
                     </div>
                     <div class="form-group">
                         <label for="city">{{ __('City') }}</label>
-                        <input type="text" class="form-control" id="city" placeholder="{{ __('city') }}" name="city" value="{{ old('city', $property->city) }}" />
+                        <input type="text" class="form-control" id="city" placeholder="{{ __('city') }}" name="city" value="{{ old('city', $post->city) }}" />
                     </div>
                     <div class="form-group">
                         <label for="phone">{{ __('Phone') }}</label>
-                        <input type="number" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone', $property->phone) }}" />
+                        <input type="number" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone', $post->phone) }}" />
                     </div>
                     <div class="form-group">
                         <label for="website">{{ __('Website') }}</label>
-                        <input type="text" class="form-control" id="website" placeholder="{{ __('website') }}" name="website" value="{{ old('website', $property->website) }}" />
+                        <input type="text" class="form-control" id="website" placeholder="{{ __('website') }}" name="website" value="{{ old('website', $post->website) }}" />
                     </div>
                     <div class="form-group">
                         <label for="description">{{ __('Description') }}</label>
-                        <textarea name="description" class="form-control" id="description" cols="30" rows="5" placeholder="Description">{{ old('description', $property->description) }}</textarea>
+                        <textarea name="description" class="form-control" id="description" cols="30" rows="5" placeholder="Description">{{ old('description', $post->description) }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Save')}}</button>
                 </form>
