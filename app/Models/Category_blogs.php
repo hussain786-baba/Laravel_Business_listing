@@ -10,7 +10,7 @@ class Category_blogs extends Model
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function blogs()
+    public function posts()
     {
         return $this->hasMany(Post::class);
     }

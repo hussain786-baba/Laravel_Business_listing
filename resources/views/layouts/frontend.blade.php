@@ -12,7 +12,7 @@
       href="{{ asset('frontend/assets/libraries/bootstrap/css/bootstrap.min.css') }}"
     />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}" />
-    <title>Real Estate Website</title>
+    <title>Citiinfo</title>
   </head>
   <body>
     <header class="bg-white border-bottom">
@@ -65,6 +65,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('property.index') }}">Business</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('post.index') }}">Blogs</a>
               </li>
              
               <li class="nav-item">
