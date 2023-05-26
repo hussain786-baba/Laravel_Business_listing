@@ -15,14 +15,10 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->string('slug');
-            $table->integer('price');
-            $table->string('location');
             $table->text('description');
-            $table->string('city');
-            $table->string('phone');
-            $table->string('website');
+            $table->string('author');    
             $table->foreignId('category_blogs_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

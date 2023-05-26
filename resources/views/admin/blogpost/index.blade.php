@@ -25,8 +25,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>{{ __('Name') }}</th>
-                                <th>{{ __('Price') }}</th>
+                                <th>{{ __('Title') }}</th>
+                                <th>{{ __('Author') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -34,8 +34,8 @@
                             @forelse($posts as $post)
                             <tr data-entry-id="{{ $post->id }}">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $post->name }}</td>
-                                <td>{{ $post->price }}</td>
+                                <td>{{ $post->title }}</td>
+                                <td>{{ $post->author }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('admin.blogpost.edit', $post->id) }}" class="btn btn-info">
