@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($blogpost as $post)
+                            @forelse($posts as $post)
                             <tr data-entry-id="{{ $post->id }}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $post->name }}</td>

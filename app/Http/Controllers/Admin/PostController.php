@@ -22,21 +22,21 @@ class PostController extends Controller
     {
         abort_if(Gate::denies('blog_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         if(auth()->user()->roles()->where('title', 'agent')->count() > 0) {
-            $blogpost = Post::where('user_id', auth()->id())->get();
+            $posts = Post::where('user_id', auth()->id())->get();
         }else {
-            $blogpost = Post::all();
+            $posts = Post::all();
         }
 
-        return view('admin.blogpost.index', compact('blogpost'));
+        return view('admin.blogpost.index', compact('posts'));
     }
 
     public function create(): View
     {
         abort_if(Gate::denies('blog_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
-        $blogpost = Category_blogs::get();
+        $posts = Category_blogs::get();
 
-        return view('admin.blogpost.create', compact('blogpost'));
+        return view('admin.blogpost.create', compact('posts'));
     }
 
     public function store(ValidatePostRequest $request): RedirectResponse
@@ -45,39 +45,39 @@ class PostController extends Controller
 
         $slug = Str::slug($request->name, '-');
         
-        $blogpost = Post::create($request->validated() + ['slug' => $slug, 'user_id' => auth()->id()]);
+        $posts = Post::create($request->validated() + ['slug' => $slug, 'user_id' => auth()->id()]);
 
-        return redirect()->route('admin.blogpost.edit', $blogpost->id)->with([
+        return redirect()->route('admin.blogpost.edit', $posts->id)->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);
     }
 
-    public function show(Post $blogpost): View
+    public function show(Post $post): View
     {
-        abort_if(Gate::denies('property_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('blog_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.blogpost.show', compact('blogpost'));
+        return view('admin.blogpost.show', compact('post'));
     }
 
-    public function edit(Post $blogpost): View
+    public function edit(Post $posts): View
     {
          abort_if(Gate::denies('blog_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-         if($blogpost->agent->name != auth()->user()->name && auth()->user()->roles()->where('title', 'agent')->count() > 0){
+         if($posts->agent->name != auth()->user()->name && auth()->user()->roles()->where('title', 'agent')->count() > 0){
             abort(403);
          }
-         $blog_categories = Category_blogs::get();
+         $category_blogs = Category_blogs::get();
 
-        return view('admin.blogpost.edit', compact('blogpost', 'blog_categories'));
+        return view('admin.blogpost.edit', compact('blogpost', 'category_blogs'));
     }
 
-    public function update(ValidatePostRequest $request, Post $blogpost): RedirectResponse
+    public function update(ValidatePostRequest $request, Post $posts): RedirectResponse
     {
         abort_if(Gate::denies('blog_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
        
         $slug = Str::slug($request->name, '-');
 
-        $blogpost->update($request->validated() + ['slug' => $slug,'user_id' => auth()->id()]);
+        $posts->update($request->validated() + ['slug' => $slug,'user_id' => auth()->id()]);
 
         return redirect()->route('admin.blogpost.index')->with([
             'message' => 'successfully updated !',
@@ -85,14 +85,14 @@ class PostController extends Controller
         ]);
     }
 
-    public function destroy(Post $blogpost): RedirectResponse
+    public function destroy(Post $posts): RedirectResponse
     {
         abort_if(Gate::denies('blog_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        if($blogpost->agent->name != auth()->user()->name){
+        if($posts->agent->name != auth()->user()->name){
             abort(403);
          }
 
-        $blogpost->delete();
+        $posts->delete();
 
         return back()->with([
             'message' => 'successfully deleted !',

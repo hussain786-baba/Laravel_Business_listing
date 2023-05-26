@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="category">{{ __('Blog Post Category') }}</label>
                         <select name="category_blogs_id" class="form-control" id="category_blogs">
-                            @foreach($blogpost as $category)
+                            @foreach($posts as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>

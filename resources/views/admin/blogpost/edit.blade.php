@@ -35,16 +35,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($post->features_blogs as $feature)
+                                @forelse($posts->features_blogs as $feature)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $feature->name }}</td>
+                                        <td>{{ $feature->name ?? 'None' }}</td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.blogpost.features.edit', [$posts->id, $feature->id]) }}" class="btn btn-info">
+                                                <a href="{{ route('admin.blogpost.features.edit', [$post->id, $feature->id ]) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
-                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.properties.features.destroy', [$posts->id, $feature->id]) }}" method="POST">
+                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogpost.features.destroy', [$post->id, $feature->id]) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.blogpost.features.store', $posts->id) }}" method="POST">
+                        <form action="{{ route('admin.blogpost.features.store', $post->id) }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="name">{{ __('Name') }}</label>
@@ -100,17 +100,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($posts->galleries_blogs as $gallery)
+                                @forelse($post->galleries_blogs as $gallery)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a target="_blank" href="{{ Storage::url($gallery->path) }}">
-                                                <img width="80" height="80" src="{{ Storage::url($gallery->path) }}" alt="{{ $posts->name }}">
+                                                <img width="80" height="80" src="{{ Storage::url($gallery->path) }}" alt="{{ $post->name }}">
                                             </a>
                                         </td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.blogpost.galleries.edit', [$posts->id, $gallery->id]) }}" class="btn btn-info">
+                                                <a href="{{ route('admin.blogpost.galleries.edit', [$post->id, $gallery->id]) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
                                                 <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogpost.galleries.destroy', [$post->id, $gallery->id]) }}" method="POST">
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.blogpost.update', $posts->id) }}" method="POST">
+                <form action="{{ route('admin.blogpost.update', $post->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
