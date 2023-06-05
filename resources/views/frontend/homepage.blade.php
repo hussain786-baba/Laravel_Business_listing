@@ -110,9 +110,9 @@
                       </div>
                     </div> --}}
                                     <hr class="mb-5" />
-                                    <h1 style="width: 50%; font-size: 2vw" class="fw-bold mb-0">
+                                    {{-- <h1 style="width: 50%; font-size: 2vw" class="fw-bold mb-0">
                                         ${{ $property->price }}
-                                    </h1>
+                                    </h1> --}}
                                     <a href="{{ route('property.show', $property->slug) }}"
                                         style="right: 0; bottom: 0; border-radius: 0.4rem 0 0.4rem 0"
                                         class="align-items-center border-0 p-3 px-5 position-absolute btn btn-primary d-inline-flex">View

@@ -38,7 +38,7 @@
           <div class="col-lg-8 mb-4">
             <div class="card border-0 p-4">
               <div class="d-flex justify-content-between mb-4">
-                <h1>${{ $property->price}}</h1>
+                {{-- <h1>${{ $property->price}}</h1> --}}
                 {{-- <div class="d-grid grid-custom">
                   <div class="col">
                     <small class="text-secondary">Land Size</small>

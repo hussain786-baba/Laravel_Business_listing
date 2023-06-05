@@ -77,7 +77,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item {{ request()->is('admin/blog_categories') || request()->is('admin/blog_categories/*') ? 'active' : '' }}"
                         href="{{ route('admin.blog_categories.index') }}"> <i class="fa fa-briefcase mr-2"></i>
-                        {{ __('Blog_Category') }}</a>
+                        {{ __('Blog Category') }}</a>
 
 
                     <a class="collapse-item {{ request()->is('admin/blogpost') || request()->is('admin/blogpost/*') ? 'active' : '' }}"
@@ -141,6 +141,28 @@
         </li>
     @endif
 
+{{--               Add management start             --}}
+<li class="nav-item">
+    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="true"
+        aria-controls="collapseAdd">
+        <i class="fas fa-home"></i>
+        <span>{{ __('Add Management') }}</span>
+    </a>
+    <div id="collapseAdd" class="collapse" aria-labelledby="headingBlog" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item {{ request()->is('admin/addcategories') || request()->is('admin/addcategories/*') ? 'active' : '' }}"
+                href="{{ route('admin.addcategories.index') }}"> <i class="fa fa-briefcase mr-2"></i>
+                {{ __('Add Category') }}</a>
+
+
+            <a class="collapse-item {{ request()->is('admin/blogpost') || request()->is('admin/blogpost/*') ? 'active' : '' }}"
+                href="{{ route('admin.blogpost.index') }}"> <i class="fa fa-briefcase mr-2"></i>
+                {{ __('Add') }}</a>
+
+        </div>
+    </div>
+</li>
+{{--               Add management end             --}}
 
 
 </ul>

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidatePropertyRequest extends FormRequest
+class ValidateAddcategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,6 @@ class ValidatePropertyRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'city' => 'required',
-            'phone' => 'required',
-            'website' => 'required',
-            'category_id' => 'required'
         ];
     }
 }

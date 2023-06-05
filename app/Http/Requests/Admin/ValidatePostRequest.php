@@ -24,13 +24,9 @@ class ValidatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'price' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'city' => 'required',
-            'phone' => 'required',
-            'website' => 'required',
+            'title' => 'required',
+            'description' => 'required',   
+            'author' => 'required',
             'category_blogs_id' => 'required'
         ];
     }

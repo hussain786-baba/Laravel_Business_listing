@@ -47,7 +47,7 @@ class PostController extends Controller
         
         $posts = Post::create($request->validated() + ['slug' => $slug, 'user_id' => auth()->id()]);
 
-        return redirect()->route('admin.blogpost.edit', $posts->id)->with([
+        return redirect()->route('admin.blogpost.index', $posts->id)->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);
@@ -68,7 +68,7 @@ class PostController extends Controller
          }
          $category_blogs = Category_blogs::get();
 
-        return view('admin.blogpost.edit', compact('blogpost', 'category_blogs'));
+        return view('admin.blogpost.edit', compact('post'));
     }
 
     public function update(ValidatePostRequest $request, Post $posts): RedirectResponse

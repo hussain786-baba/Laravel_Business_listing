@@ -175,10 +175,7 @@
                         <label for="name">{{ __('Name') }}</label>
                         <input type="text" class="form-control" id="name" placeholder="{{ __('Name') }}" name="name" value="{{ old('name', $property->name) }}" />
                     </div>
-                    <div class="form-group">
-                        <label for="price">{{ __('Price') }}</label>
-                        <input type="number" class="form-control" id="price" placeholder="{{ __('price') }}" name="price" value="{{ old('price', $property->price) }}" />
-                    </div>
+                    
                     <div class="form-group">
                         <label for="location">{{ __('Location') }}</label>
                         <input type="text" class="form-control" id="location" placeholder="{{ __('location') }}" name="location" value="{{ old('location', $property->location) }}" />
