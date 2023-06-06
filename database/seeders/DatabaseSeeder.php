@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Addcategory;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeedPivot::class);
         $this->call(RoleSeedPivot::class);
         $this->call(Category::class);
+        $this->call(Addcategory::class);
     }
 }

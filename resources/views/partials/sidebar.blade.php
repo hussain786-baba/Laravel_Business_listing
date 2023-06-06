@@ -155,8 +155,8 @@
                 {{ __('Add Category') }}</a>
 
 
-            <a class="collapse-item {{ request()->is('admin/blogpost') || request()->is('admin/blogpost/*') ? 'active' : '' }}"
-                href="{{ route('admin.blogpost.index') }}"> <i class="fa fa-briefcase mr-2"></i>
+            <a class="collapse-item {{ request()->is('admin/adds') || request()->is('admin/adds/*') ? 'active' : '' }}"
+                href="{{ route('admin.adds.index') }}"> <i class="fa fa-briefcase mr-2"></i>
                 {{ __('Add') }}</a>
 
         </div>
