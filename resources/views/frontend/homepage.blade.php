@@ -124,5 +124,9 @@
                 </div>
             </section>
         @endforeach
+
+        {{-- for add  --}}
+       
+      {{-- for add  --}}
     </main>
 @endsection

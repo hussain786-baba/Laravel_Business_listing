@@ -29,6 +29,8 @@ Route::get('agents',  [\App\Http\Controllers\AgentController::class , 'index'])-
 Route::get('contact',  [\App\Http\Controllers\ContactController::class , 'index'])->name('contact.index');
 Route::post('contact',  [\App\Http\Controllers\ContactController::class , 'store'])->name('contact.store');
 Route::get('posts',  [\App\Http\Controllers\PostController::class , 'index'])->name('post.index');
+Route::get('adds',  [\App\Http\Controllers\AddController::class , 'index'])->name('add.index');
+
 Route::get('search',  [\App\Http\Controllers\SearchController::class , 'searchProperty'])->name('search.searchProperty');
 
 Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], function() {
