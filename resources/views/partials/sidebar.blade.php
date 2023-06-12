@@ -75,8 +75,8 @@
             </a>
             <div id="collapseBlog" class="collapse" aria-labelledby="headingBlog" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item {{ request()->is('admin/blog_categories') || request()->is('admin/blog_categories/*') ? 'active' : '' }}"
-                        href="{{ route('admin.blog_categories.index') }}"> <i class="fa fa-briefcase mr-2"></i>
+                    <a class="collapse-item {{ request()->is('admin/blogcategories') || request()->is('admin/blogcategories/*') ? 'active' : '' }}"
+                        href="{{ route('admin.blogcategories.index') }}"> <i class="fa fa-briefcase mr-2"></i>
                         {{ __('Blog Category') }}</a>
 
 

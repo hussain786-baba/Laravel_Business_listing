@@ -67,7 +67,7 @@
                             <div class="card border-0 shadow-sm">
                                 <img height="310" style="object-fit: cover"
                                     src="{{ Storage::url($property->galleries()->first()->path) }}" class="card-img-top"
-                                    alt="{{$property->galleries()->first()->path}}" />
+                                    alt="{{ $property->galleries()->first()->path }}" />
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         {{ $property->name }}
@@ -126,7 +126,68 @@
         @endforeach
 
         {{-- for add  --}}
-       
-      {{-- for add  --}}
+
+        @foreach ($addcategories as $category)
+            <section class="container category" style="margin-bottom: 100px">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3>{{ $category->name }}</h3>
+                    <a href="{{ route('addcategory.index', $category->slug) }}" style="height: 50px"
+                        class="d-flex px-5 align-items-center btn btn-outline-dark">See More</a>
+                </div>
+                <hr />
+
+                <div class="row">
+                    @foreach ($category->adds as $add)
+                        <div class="col-lg-4 mb-4">
+                            <div class="card border-0 shadow-sm">
+                                <img height="310" style="object-fit: cover"
+                                    src="{{ Storage::url($add->galleries()->first()->path) }}" class="card-img-top"
+                                    alt="{{ $add->galleries()->first()->path }}" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{ $add->name }}
+                                    </h5>
+                                    <i class="uil uil-map-marker text-secondary"></i>
+                                    <span class="text-secondary">{{ $add->location }}</span>
+                                    <hr />
+                                    {{-- <div class="d-grid grid-custom">
+                                        <div class="col">
+                                            <small class="text-secondary">Land Size</small>
+                                            <div class="d-flex align-items-center" style="column-gap: 0.4rem">
+                                                <i class="uil uil-image-resize-square fw-bold fs-2 text-secondary"></i>
+                                                <span class="fw-bold text-secondary">{{ $add->size }} sqft </span>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <small class="text-secondary">Beds</small>
+                                            <div class="d-flex align-items-center" style="column-gap: 0.4rem">
+                                                <i class="uil uil-bed fs-2 fw-bold text-secondary"></i>
+                                                <span class="fw-bold text-secondary">{{ $add->bed }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <small class="text-secondary">Bath</small>
+                                            <div class="d-flex align-items-center" style="column-gap: 0.4rem">
+                                                <i class="uil uil-bath fs-2 fw-bold text-secondary"></i>
+                                                <span class="fw-bold text-secondary"> {{ $add->bath }} </span>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    <hr class="mb-5" />
+                                    {{-- <h1 style="width: 50%; font-size: 2vw" class="fw-bold mb-0">
+                                        ${{ $add->price }}
+                                    </h1> --}}
+                                    <a href="{{ route('add.show', $add->slug) }}"
+                                        style="right: 0; bottom: 0; border-radius: 0.4rem 0 0.4rem 0"
+                                        class="align-items-center border-0 p-3 px-5 position-absolute btn btn-primary d-inline-flex">View
+                                        Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </section>
+        @endforeach
+        {{-- for add  --}}
     </main>
 @endsection

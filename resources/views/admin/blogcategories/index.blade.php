@@ -10,8 +10,8 @@
                 {{ __('Blog Category') }}
                 </h6>
                 <div class="ml-auto">
-                    @can('blog_category_create')
-                    <a href="{{ route('admin.blog_categories.create') }}" class="btn btn-primary">
+                    @can('blogcategory_create')
+                    <a href="{{ route('admin.blogcategories.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -30,16 +30,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($blog_categories as $category)
+                            @forelse($blogcategories as $category)
                             <tr data-entry-id="{{ $category->id }}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.blog_categories.edit', $category->id) }}" class="btn btn-info">
+                                        <a href="{{ route('admin.blogcategories.edit', $category->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blog_categories.destroy', $category->id) }}" method="POST">
+                                        <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogcategories.destroy', $category->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">

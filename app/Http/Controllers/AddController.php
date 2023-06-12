@@ -10,13 +10,13 @@ class AddController extends Controller
 {
     public function index()
     {
-        $adds = Add::with('category')->inRandomOrder()->get();
+        $adds = Add::with('addcategory')->inRandomOrder()->get();
 
         return view('frontend.add', compact('adds'));
     }
 
-    // public function show(Add $add)
-    // {
-    //     return view('frontend.detail', compact('add'));
-    // }
+    public function show(Add $add)
+    {
+        return view('frontend.adddetail', compact('add'));
+    }
 }

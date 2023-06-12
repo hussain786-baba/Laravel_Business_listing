@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Add extends Model
+class Blog extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
-
-    public function addcategory()
+    public function category()
     { 
-        return $this->belongsTo(Addcategory::class);
+        return $this->belongsTo(Blogcategory::class);
     }
 
     public function galleries()
     {
-        return $this->hasMany(Addgallery::class);
+        return $this->hasMany(Bloggallery::class);
     }
 
     public function features()
     {
-        return $this->hasMany(Addfeature::class);
+        return $this->hasMany(Blogfeature::class);
     }
 
     public function agent()

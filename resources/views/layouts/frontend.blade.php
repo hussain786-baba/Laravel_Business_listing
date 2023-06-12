@@ -77,7 +77,7 @@
                 <a class="nav-link" href="{{ route('agent.index') }}">Our Agents</a>
               </li> --}}
               <a
-              href="{{ route('admin.properties.create') }}"
+              href="{{ route('login') }}"
               class="btn d-inline-flex justify-content-center align-items-center btn-primary mb-4 mb-md-0"
             >
              + Add Listing

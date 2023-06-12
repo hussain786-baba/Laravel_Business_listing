@@ -20,11 +20,11 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('create data') }}</h1>
-                    <a href="{{ route('admin.blog_categories.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="{{ route('admin.blogcategories.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.blog_categories.store') }}" method="POST">
+                <form action="{{ route('admin.blogcategories.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="name">{{ __('Name') }}</label>
