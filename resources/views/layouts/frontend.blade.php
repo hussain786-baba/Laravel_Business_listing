@@ -66,10 +66,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('property.index') }}">Business</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('post.index') }}">Blogs</a>
+              {{-- <li class="nav-item">
+                <a class="nav-link" href="{{ route('blogs.index') }}">Blogs</a>
               </li>
-             
+              --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
               </li>
