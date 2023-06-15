@@ -25,7 +25,11 @@ Route::get('/',  [\App\Http\Controllers\HomeController::class , 'index'])->name(
 Route::get('properties',  [\App\Http\Controllers\PropertyController::class , 'index'])->name('property.index');
 Route::get('properties/detail/{property:slug}',  [\App\Http\Controllers\PropertyController::class , 'show'])->name('property.show');
 Route::get('properties/category/{category:slug}',  [\App\Http\Controllers\CategoryController::class , 'index'])->name('category.index');
-Route::get('posts',  [\App\Http\Controllers\PostController::class , 'index'])->name('post.index');
+
+Route::get('blogs',  [\App\Http\Controllers\BlogController::class , 'index'])->name('blog.index');
+Route::get('blogs/detail/{blog:slug}',  [\App\Http\Controllers\BlogController::class , 'show'])->name('blog.show');
+Route::get('blogs/blogcategory/{blogcategory:slug}',  [\App\Http\Controllers\BlogcategoryController::class , 'index'])->name('blogcategory.index');
+
 Route::get('adds',  [\App\Http\Controllers\AddController::class , 'index'])->name('add.index');
 Route::get('adds/detail/{add:slug}',  [\App\Http\Controllers\AddController::class , 'show'])->name('add.show');
 Route::get('adds/addcategory/{addcategory:slug}',  [\App\Http\Controllers\AddcategoryController::class , 'index'])->name('addcategory.index');
