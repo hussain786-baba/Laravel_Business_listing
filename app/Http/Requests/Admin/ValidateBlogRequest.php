@@ -24,10 +24,13 @@ class ValidateBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',   
-            'author' => 'required',
-            'category_blogs_id' => 'required'
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'city' => 'required',
+            'phone' => 'required',
+            'website' => 'required',
+            'blogcategory_id' => 'required',
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidateBlogGalleryRequest extends FormRequest
+class ValidateBloggalleryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ValidateBlogGalleryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class ValidateBlogGalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'path' => 'required|image'
         ];
     }
 }

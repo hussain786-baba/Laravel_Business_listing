@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         View::composer('*', function ($view) {
             $view->with('categories', Category::all());
-            // $view->with('blog_categories', Blog_Category::all());
+           
         });
     }
 }
