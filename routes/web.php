@@ -56,11 +56,11 @@ Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], 
     Route::put('agents/{user:id}', [\App\Http\Controllers\Admin\AgentController::class, 'update'])->name('agents.update');
 
     
-    // old blog management
+    // blog management
     Route::resource('blogcategories',\App\Http\Controllers\Admin\BlogcategoryController::class);
     Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class);
-    // Route::resource('properties.features', \App\Http\Controllers\Admin\FeatureController::class);
-    // Route::resource('properties.galleries', \App\Http\Controllers\Admin\GalleryController::class);
+    Route::resource('blogs.blogfeatures', \App\Http\Controllers\Admin\BlogfeatureController::class);
+    Route::resource('blogs.bloggalleries', \App\Http\Controllers\Admin\BloggalleryController::class);
 
 
 

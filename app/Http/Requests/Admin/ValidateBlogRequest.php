@@ -13,7 +13,7 @@ class ValidateBlogRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,12 +24,9 @@ class ValidateBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'location' => 'required',
+            'title' => 'required',   
             'description' => 'required',
-            'city' => 'required',
-            'phone' => 'required',
-            'website' => 'required',
+            'author' => 'required',
             'blogcategory_id' => 'required',
         ];
     }

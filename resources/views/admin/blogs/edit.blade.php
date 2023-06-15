@@ -35,16 +35,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($add->features as $feature)
+                                @forelse($blog->features as $feature)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $feature->name }}</td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.adds.addfeatures.edit', [$add->id, $feature->id]) }}" class="btn btn-info">
+                                                <a href="{{ route('admin.blogs.blogfeatures.edit', [$blog->id, $feature->id]) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
-                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.adds.addfeatures.destroy', [$add->id, $feature->id]) }}" method="POST">
+                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogs.blogfeatures.destroy', [$blog->id, $feature->id]) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -67,11 +67,11 @@
                 <div class="card shadow">
                     <div class="card-header">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">{{ __('add features')}}</h1>
+                            <h1 class="h3 mb-0 text-gray-800">{{ __('blog features')}}</h1>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.adds.addfeatures.store', $add->id) }}" method="POST">
+                        <form action="{{ route('admin.blogs.blogfeatures.store', $blog->id) }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="name">{{ __('Name') }}</label>
@@ -100,20 +100,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($add->galleries as $gallery)
+                                @forelse($blog->galleries as $gallery)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a target="_blank" href="{{ Storage::url($gallery->path) }}">
-                                                <img width="80" height="80" src="{{ Storage::url($gallery->path) }}" alt="{{ $add->name }}">
+                                                <img width="80" height="80" src="{{ Storage::url($gallery->path) }}" alt="{{ $blog->name }}">
                                             </a>
                                         </td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('admin.adds.addgalleries.edit', [$add->id, $gallery->id]) }}" class="btn btn-info">
+                                                <a href="{{ route('admin.blogs.bloggalleries.edit', [$blog->id, $gallery->id]) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
-                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.adds.addgalleries.destroy', [$add->id, $gallery->id]) }}" method="POST">
+                                                <form onclick="return confirm('are you sure ? ')"  class="d-inline" action="{{ route('admin.blogs.bloggalleries.destroy', [$blog->id, $gallery->id]) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -136,11 +136,11 @@
                 <div class="card shadow">
                     <div class="card-header">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">{{ __('add images')}}</h1>
+                            <h1 class="h3 mb-0 text-gray-800">{{ __('blog images')}}</h1>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.adds.addgalleries.store', $add->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.blogs.bloggalleries.store', $blog->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="path">{{ __('Featured Image') }}</label>
@@ -156,46 +156,36 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('edit data')}}</h1>
-                    <a href="{{ route('admin.adds.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="{{ route('admin.blogs.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.adds.update', $add->id) }}" method="POST">
+                <form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="addcategory">{{ __('Addcategory') }}</label>
-                        <select name="addcategory_id" class="form-control" id="addcategory">
-                            @foreach($addcategories as $addcategory)
-                            {{-- <option {{ $addcategory->id == $add->addcategory->id ? 'selected' : null }} value="{{ $addcategory->id }}">{{ $addcategory->name}}</option> --}}
-                            <option value="{{ $addcategory->id }}">{{ $addcategory->name }}</option>
+                        <label for="blogcategory">{{ __('Blog category') }}</label>
+                        <select name="blogcategory_id" class="form-control" id="blogcategory">
+                            @foreach($blogcategories as $blogcategory)
+                            {{-- <option {{ $blogcategory->id == $blog->blogcategory->id ? 'selected' : null }} value="{{ $blogcategory->id }}">{{ $blogcategory->name}}</option> --}}
+                            <option value="{{ $blogcategory->id }}">{{ $blogcategory->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="name">{{ __('Name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('Name') }}" name="name" value="{{ old('name', $add->name ) }}" />
+                        <label for="title">{{ __('Title') }}</label>
+                        <input type="text" class="form-control" id="title" placeholder="{{ __('Title') }}" name="title" value="{{ old('title', $blog->title ) }}" />
                     </div>
                     
-                    <div class="form-group">
-                        <label for="location">{{ __('Location') }}</label>
-                        <input type="text" class="form-control" id="location" placeholder="{{ __('location') }}" name="location" value="{{ old('location', $add->location ) }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="city">{{ __('City') }}</label>
-                        <input type="text" class="form-control" id="city" placeholder="{{ __('city') }}" name="city" value="{{ old('city', $add->city ) }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">{{ __('Phone') }}</label>
-                        <input type="number" class="form-control" id="phone" placeholder="{{ __('phone') }}" name="phone" value="{{ old('phone', $add->phone ) }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="website">{{ __('Website') }}</label>
-                        <input type="text" class="form-control" id="website" placeholder="{{ __('website') }}" name="website" value="{{ old('website', $add->website) }}" />
-                    </div>
+                    
+                   
                     <div class="form-group">
                         <label for="description">{{ __('Description') }}</label>
-                        <textarea name="description" class="form-control" id="description" cols="30" rows="5" placeholder="Description">{{ old('description', $add->description ) }}</textarea>
+                        <textarea name="description" class="form-control" id="description" cols="30" rows="5" placeholder="Description">{{ old('description', $blog->description ) }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">{{ __('Author') }}</label>
+                        <input type="text" class="form-control" id="author" placeholder="{{ __('author') }}" name="author" value="{{ old('author', $blog->author ) }}" />
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Save')}}</button>
                 </form>

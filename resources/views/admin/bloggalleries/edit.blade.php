@@ -20,11 +20,11 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('edit data')}}</h1>
-                    <a href="{{ route('admin.blopost.edit', $post->id) }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="{{ route('admin.adds.edit', $add->id) }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.blogpost.galleries.update', [$post->id,$gallery->id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.adds.addgalleries.update', [$add->id,$addgallery->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group">
