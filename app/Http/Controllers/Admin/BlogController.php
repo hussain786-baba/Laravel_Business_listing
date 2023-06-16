@@ -40,26 +40,26 @@ class BlogController extends Controller
     {
         abort_if(Gate::denies('blog_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $slug = Str::slug($request->name, '-');
+        $slug = Str::slug($request->title, '-');
         
-        $property = Blog::create($request->validated() + ['slug' => $slug, 'user_id' => auth()->id()]);
+        $blog = Blog::create($request->validated() + ['slug' => $slug, 'user_id' => auth()->id()]);
 
-        return redirect()->route('admin.blogs.edit', $property->id)->with([
+        return redirect()->route('admin.blogs.edit', $blog->id)->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);
     }
 
-    public function show(Blog $property): View
+    public function show(Blog $blog): View
     {
         abort_if(Gate::denies('Blog_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.properties.show', compact('property'));
+        return view('admin.properties.show', compact('blog'));
     }
 
     public function edit(Blog $blog): View
     {
-         abort_if(Gate::denies('property_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+         abort_if(Gate::denies('blog_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
          if($blog->agent->name != auth()->user()->name && auth()->user()->roles()->where('title', 'agent')->count() > 0){
             abort(403);
          }
@@ -70,9 +70,9 @@ class BlogController extends Controller
 
     public function update(ValidateBlogRequest $request, Blog $blog): RedirectResponse
     {
-        abort_if(Gate::denies('property_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('blog_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
        
-        $slug = Str::slug($request->name, '-');
+        $slug = Str::slug($request->title, '-');
 
         $blog->update($request->validated() + ['slug' => $slug,'user_id' => auth()->id()]);
 
